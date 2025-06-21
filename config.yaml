@@ -1,0 +1,796 @@
+type: collection.insomnia.rest/5.0
+name: Fireschool API requests
+meta:
+  id: wrk_6898a58ed9114ed4958f765134a406e5
+  created: 1750514376688
+  modified: 1750514376688
+  description: ""
+collection:
+  - name: token
+    meta:
+      id: fld_df2a98fcbcc3454c8caa3f96fc8c1372
+      created: 1750514561421
+      modified: 1750514657237
+      sortKey: -1750514561471
+      description: ""
+    children:
+      - url: http://127.0.0.1:8010/token
+        name: Получить токен
+        meta:
+          id: req_00231aed9d854779b48e9c29ed9c0b75
+          created: 1750514382716
+          modified: 1750514637067
+          isPrivate: false
+          description: ""
+          sortKey: -1750514567880
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "login": "admin",
+              "password": "admin"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: SQL
+    meta:
+      id: fld_9595da839596498fbb75f9a4328fc827
+      created: 1750514652719
+      modified: 1750514846127
+      sortKey: -1750514652719
+      description: ""
+    children:
+      - url: http://127.0.0.1:8010/sql/tables
+        name: Получить названия таблиц в базе
+        meta:
+          id: req_4aa6262473274bdb9fb9a69ea8981e33
+          created: 1750514659864
+          modified: 1750514705512
+          isPrivate: false
+          description: ""
+          sortKey: -1750514659864
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/sql/query
+        name: Выполнить запрос в базу
+        meta:
+          id: req_70352158c759497987293e730f5c7b8e
+          created: 1750514712927
+          modified: 1750514763861
+          isPrivate: false
+          description: ""
+          sortKey: -1750514712927
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "query": "select * from user"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/sql/cmd
+        name: Выполнить команду в базе
+        meta:
+          id: req_d6546d73996047afb759ecc484d6f3b5
+          created: 1750514779734
+          modified: 1750514821071
+          isPrivate: false
+          description: ""
+          sortKey: -1750514779734
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "cmd": "DELETE FROM STRUCTURE"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: users
+    meta:
+      id: fld_de2df3e50d3d44e687f38722ee5e29d0
+      created: 1750514841720
+      modified: 1750514971226
+      sortKey: -1750514841720
+      description: ""
+    children:
+      - url: 127.0.0.1:8010/users/2/password
+        name: Обновить пароль пользователя
+        meta:
+          id: req_c7c48980f01d4ecd96dbac88a632db13
+          created: 1750514861091
+          modified: 1750514932844
+          isPrivate: false
+          description: ""
+          sortKey: -1750514861091
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "password": "new_password"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/users/2
+        name: Удалить пользователя
+        meta:
+          id: req_506840f364304ef198485e96764d315e
+          created: 1750514987627
+          modified: 1750515016930
+          isPrivate: false
+          description: ""
+          sortKey: -1750514987627
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/users/2/role/admin
+        name: Обновить роль пользователя
+        meta:
+          id: req_97b7be4142cf48a2b41532b73e6ea783
+          created: 1750515036205
+          modified: 1750515071089
+          isPrivate: false
+          description: ""
+          sortKey: -1750515036205
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/users
+        name: Создаёт нового пользователя с правом на чтение read
+        meta:
+          id: req_cd6e4994962d48f4a0e716e7a7eca519
+          created: 1750515074953
+          modified: 1750515284052
+          isPrivate: false
+          description: ""
+          sortKey: -1750515074953
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "login": "admin",
+              "password": "qwerty123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    headers:
+      - id: pair_256caa55a6004665af8f10d00976baa5
+        name: Authorization
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.yH8SxE9HSqGU3uys7TppOy1V5eKAYljA-50a-8zHAM8
+        description: ""
+        disabled: false
+  - name: employees
+    meta:
+      id: fld_9d2f4bd337594f1d9015a65e8a024479
+      created: 1750515310174
+      modified: 1750516070042
+      sortKey: -1750515310174
+      description: ""
+    children:
+      - url: 127.0.0.1:8010/employees
+        name: Создаёт нового Сотрудника
+        meta:
+          id: req_a323a95a18074fc1a453fbb46503ecc0
+          created: 1750515315112
+          modified: 1750515560706
+          isPrivate: false
+          description: ""
+          sortKey: -1750515315112
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Иванов Иван Иванович",
+              "salary": 30000,
+              "work": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/employees/all
+        name: Получить всех сотрудников
+        meta:
+          id: req_265bb94dba954c66acf07271bc0c460d
+          created: 1750515425698
+          modified: 1750515500268
+          isPrivate: false
+          description: ""
+          sortKey: -1750515425698
+        method: GET
+        parameters:
+          - id: pair_8ce618b7c38a4267af4665ad8b5164d5
+            name: limit
+            value: "10"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/employees/1
+        name: Получить сотрудника
+        meta:
+          id: req_2785ef30787f4502b1be61466bc828ab
+          created: 1750515505581
+          modified: 1750515570312
+          isPrivate: false
+          description: ""
+          sortKey: -1750515370405
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/employees/2
+        name: Обновить сотрудника
+        meta:
+          id: req_21175d962ebd483aa93313c858de997e
+          created: 1750515581785
+          modified: 1750515630571
+          isPrivate: false
+          description: ""
+          sortKey: -1750515425798
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Иванов Иван Иванович",
+              "salary": 30000,
+              "work": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/employees/1
+        name: Удалить сотрудника
+        meta:
+          id: req_5020b7dbe57a440cb41f65d621434b76
+          created: 1750515639367
+          modified: 1750516051701
+          isPrivate: false
+          description: ""
+          sortKey: -1750515639367
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    headers:
+      - id: pair_2da2af7a03d748e28dc600cf1bd45146
+        name: Authorization
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.yH8SxE9HSqGU3uys7TppOy1V5eKAYljA-50a-8zHAM8
+        description: ""
+        disabled: false
+  - name: companies
+    meta:
+      id: fld_dbbbfaa4738a44ed8245b744d315e02c
+      created: 1750515905130
+      modified: 1750516067345
+      sortKey: -1750515905130
+      description: ""
+    children:
+      - url: 127.0.0.1:8010/companies
+        name: Создаёт новую Компанию
+        meta:
+          id: req_ef142c34f2b7438ca47b2290ea303c6a
+          created: 1750515908340
+          modified: 1750515980321
+          isPrivate: false
+          description: ""
+          sortKey: -1750515908340
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Apple",
+              "year": 1973,
+              "country": "USA"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/companies/all
+        name: Получить все Компании
+        meta:
+          id: req_db5bc46c52144b2693710a2d63d6ce5d
+          created: 1750515987484
+          modified: 1750516010118
+          isPrivate: false
+          description: ""
+          sortKey: -1750515987484
+        method: GET
+        parameters:
+          - id: pair_2b1a2a919064448fada8560102004a0d
+            name: limit
+            value: "5"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/companies/1
+        name: Получить компанию
+        meta:
+          id: req_9d635d9ac9ba4f5d893f1b6ba98e3e0f
+          created: 1750516028139
+          modified: 1750516035743
+          isPrivate: false
+          description: ""
+          sortKey: -1750515947912
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/companies/1
+        name: Обновить компанию
+        meta:
+          id: req_22d4a64be34b4cf4967a78b9d2c0ee43
+          created: 1750516079635
+          modified: 1750516129779
+          isPrivate: false
+          description: ""
+          sortKey: -1750516079635
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Apple",
+              "year": 1973,
+              "country": "USA"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/companies/1
+        name: Удалить компанию
+        meta:
+          id: req_83a93608cb6d435da97bb485433880e2
+          created: 1750516142682
+          modified: 1750516173916
+          isPrivate: false
+          description: ""
+          sortKey: -1750516142682
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    headers:
+      - id: pair_a38d18af0323423ca345a5d60aac18be
+        name: Authorization
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.yH8SxE9HSqGU3uys7TppOy1V5eKAYljA-50a-8zHAM8
+        description: ""
+        disabled: false
+  - name: structure
+    meta:
+      id: fld_de427103e0034970a3747f6877493492
+      created: 1750516194920
+      modified: 1750516667697
+      sortKey: -1750516194920
+      description: ""
+    children:
+      - url: 127.0.0.1:8010/structure/3
+        name: Получить сотрудников в компании
+        meta:
+          id: req_af5375937fa644c2b9de963288ce2a73
+          created: 1750516224199
+          modified: 1750516353384
+          isPrivate: false
+          description: ""
+          sortKey: -1750516224199
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/structure/2
+        name: Добавить сотрудников в компанию
+        meta:
+          id: req_c2d65986c4924a3bafbf71022cd62503
+          created: 1750516366933
+          modified: 1750516431814
+          isPrivate: false
+          description: ""
+          sortKey: -1750516366933
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            [
+              0
+            ]
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/structure/2
+        name: Удалить сотрудников из Компании
+        meta:
+          id: req_2927b2d4dd6e4f47b60f8311d869b1a3
+          created: 1750516438933
+          modified: 1750516632884
+          isPrivate: false
+          description: ""
+          sortKey: -1750516438933
+        method: DELETE
+        parameters:
+          - id: pair_cb48e8fda69c43729ef240aa21cb0229
+            name: employeeId
+            value: "5"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    headers:
+      - id: pair_62f55509676d4d1ea2f65597b3d7ca88
+        name: Authorization
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.yH8SxE9HSqGU3uys7TppOy1V5eKAYljA-50a-8zHAM8
+        description: ""
+        disabled: false
+  - name: files
+    meta:
+      id: fld_909918ea96834fcdb5a7a85bb4a4daa2
+      created: 1750516644409
+      modified: 1750516676455
+      sortKey: -1750516644409
+      description: ""
+    children:
+      - url: 127.0.0.1:8010/files
+        name: Отправить файл
+        meta:
+          id: req_7b674f92f2b74303840fc787740aa14d
+          created: 1750516688283
+          modified: 1750516823347
+          isPrivate: false
+          description: ""
+          sortKey: -1750516688283
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_6328cdd96179445493414be7c02c84cd
+              name: file
+              value: ""
+              description: ""
+              disabled: false
+              type: file
+              fileName: /home/yurix/yay/PKGBUILD
+            - id: pair_9bdc2642897a40ffbdb163b18265752a
+              name: name
+              value: pkgbuild
+              description: ""
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/files/all
+        name: Получить все файлы (только АДМИН)
+        meta:
+          id: req_e84465e63746417bbced81d97b8e3530
+          created: 1750516818927
+          modified: 1750517212131
+          isPrivate: false
+          description: ""
+          sortKey: -1750516818927
+        method: GET
+        parameters:
+          - id: pair_54b4d800c6a2458fa09e869902c16665
+            name: limit
+            value: "10"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/files/1
+        name: Скачать файл по ID
+        meta:
+          id: req_6abf07f25a2342f28ee6b926ccf46ba5
+          created: 1750516895318
+          modified: 1750516952000
+          isPrivate: false
+          description: ""
+          sortKey: -1750516753605
+        method: GET
+        parameters:
+          - id: pair_54b4d800c6a2458fa09e869902c16665
+            name: limit
+            value: "10"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/files/all
+        name: Получить все свои файлы
+        meta:
+          id: req_f1749fd90fb644b0ba986b43a54b195c
+          created: 1750516916965
+          modified: 1750516916965
+          isPrivate: false
+          description: ""
+          sortKey: -1750516786266
+        method: GET
+        parameters:
+          - id: pair_54b4d800c6a2458fa09e869902c16665
+            name: limit
+            value: "10"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: 127.0.0.1:8010/files/1
+        name: Удалить файл по ID
+        meta:
+          id: req_23fb4c4c140d4d8abb0796d424d58181
+          created: 1750516963959
+          modified: 1750517093988
+          isPrivate: false
+          description: ""
+          sortKey: -1750516963959
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    headers:
+      - id: pair_0e7a3f224bc648eb8d2ebc7c1864cc75
+        name: Authorization
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.yH8SxE9HSqGU3uys7TppOy1V5eKAYljA-50a-8zHAM8
+        description: ""
+        disabled: false
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_da448044a01efe68ed453409701de70f1aa652cd
+    created: 1750514376689
+    modified: 1750514376689
+environments:
+  name: Base Environment
+  meta:
+    id: env_da448044a01efe68ed453409701de70f1aa652cd
+    created: 1750514376689
+    modified: 1750517081537
+    isPrivate: false
